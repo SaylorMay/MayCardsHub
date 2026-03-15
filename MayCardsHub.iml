@@ -7,6 +7,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="aspose-ocr-26.2.0" level="project" />
+    <orderEntry type="library" name="commons-io-2.15.1" level="project" />
+    <orderEntry type="library" name="jna-5.14.0" level="project" />
+    <orderEntry type="library" name="jna-platform-5.14.0" level="project" />
+    <orderEntry type="library" name="lept4j-1.19.1" level="project" />
+    <orderEntry type="library" name="slf4j-api-2.0.9" level="project" />
+    <orderEntry type="library" name="slf4j-simple-2.0.9" level="project" />
+    <orderEntry type="library" name="tess4j-5.18.0" level="project" />
     <orderEntry type="library" name="jsoup-1.22.1" level="project" />
+    <orderEntry type="library" name="jai-imageio-core-1.4.0" level="project" />
   </component>
 </module>
