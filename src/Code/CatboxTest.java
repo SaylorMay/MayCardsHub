@@ -8,9 +8,12 @@ import java.nio.file.Files;
 public class CatboxTest {
 
     public static void main(String[] args) throws Exception {
+        fileToCatbox(new File("C:\\Users\\Saylo\\Desktop\\IntelliJ Projects\\Pokemon\\MayCardsHub\\src\\ProcessedImages\\Akari\\Akr-6a Akari' Arceus.png"));
+    }
 
+    public static String fileToCatbox(File file) throws Exception {
         // File you want to upload
-        File file = new File("C:\\Users\\Saylo\\Desktop\\IntelliJ Projects\\Pokemon\\MayCardsHub\\src\\Assets\\Unsorted\\alouette.png");
+        // file = new File("C:\\Users\\Saylo\\Desktop\\IntelliJ Projects\\Pokemon\\MayCardsHub\\src\\Assets\\Unsorted\\Furina.png");
 
         // Your Catbox userhash (from your Catbox account page)
         String userhash = "3e2a7090e4fecd13fc265a806";
@@ -31,25 +34,19 @@ public class CatboxTest {
         OutputStream output = conn.getOutputStream();
         PrintWriter writer = new PrintWriter(new OutputStreamWriter(output), true);
 
-        // -----------------------------
-        // 1. Request type
-        // -----------------------------
+        // Request type
         writer.println("--" + boundary);
         writer.println("Content-Disposition: form-data; name=\"reqtype\"");
         writer.println();
         writer.println("fileupload");
 
-        // -----------------------------
-        // 2. Add your account userhash
-        // -----------------------------
+        // Specify userhash
         writer.println("--" + boundary);
         writer.println("Content-Disposition: form-data; name=\"userhash\"");
         writer.println();
         writer.println(userhash);
 
-        // -----------------------------
-        // 3. Upload the file
-        // -----------------------------
+        // Upload
         writer.println("--" + boundary);
         writer.println("Content-Disposition: form-data; name=\"fileToUpload\"; filename=\"" + file.getName() + "\"");
         writer.println("Content-Type: " + Files.probeContentType(file.toPath()));
@@ -60,14 +57,12 @@ public class CatboxTest {
         Files.copy(file.toPath(), output);
         output.flush();
 
-        // End multipart request
+        // End request
         writer.println();
         writer.println("--" + boundary + "--");
         writer.close();
 
-        // -----------------------------
-        // 4. Read response (URL of upload)
-        // -----------------------------
+        // Print new url
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(conn.getInputStream())
         );
@@ -75,5 +70,8 @@ public class CatboxTest {
         String response = reader.readLine();
 
         System.out.println("Uploaded file URL: " + response);
+
+        return response;
+
     }
 }

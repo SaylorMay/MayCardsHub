@@ -1,8 +1,6 @@
-package code;
-import Code.baseWindow;
+package Code;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.swing.*;
 
@@ -29,7 +27,7 @@ public class TesseractTest {
             String imagePath5 = "C:\\Users\\Saylo\\Downloads\\ASC_264_R_EN.png";
 
             //ImageIO.write(ImageIO.read(new File(imagePath2)).getSubimage(82, 653, 77, 26), "png", new File("crop1.png"));
-            ImageIO.write(ImageIO.read(new File(imagePath3)).getSubimage(30, 50, 400, 40), "png", new File("crop2.png"));
+            ImageIO.write(ImageIO.read(new File(imagePath1)).getSubimage(30, 50, 400, 40), "png", new File("crop2.png"));
             //ImageIO.write(new java.awt.image.BufferedImage(154,52,java.awt.image.BufferedImage.TYPE_BYTE_GRAY){{getGraphics().drawImage(ImageIO.read(
                     //new File(imagePath5)).getSubimage(82,653,77,26),0,0,154,52,null);}}, "png", new File("crop1.png"));
 

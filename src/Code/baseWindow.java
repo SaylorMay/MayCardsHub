@@ -12,6 +12,7 @@ public class baseWindow extends JFrame {
     private JFormattedTextField formattedTextField3;
     private JFormattedTextField formattedTextField4;
 
+
     public baseWindow() {
 
         setTitle("Card Shit!");
@@ -23,17 +24,16 @@ public class baseWindow extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formattedTextField3.setText("Test successs!");
-            }
-        });
-
-        formattedTextField1.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                formattedTextField2.setText(formattedTextField1.getText());
-                super.keyTyped(e);
+                ImageProcessor.setContinueRequest(true);
+                System.out.println("Button Pressed!");
             }
         });
     }
+
+    public JButton getButton1() {return button1;}
+    public JFormattedTextField getFormattedTextField1() {return formattedTextField1;}
+    public JFormattedTextField getFormattedTextField2() {return formattedTextField2;}
+    public JFormattedTextField getFormattedTextField3() {return formattedTextField3;}
+    public JFormattedTextField getFormattedTextField4() {return formattedTextField4;}
 
 }
