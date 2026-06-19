@@ -84,8 +84,9 @@ public class EnvoyCard {
 
     public int importOrder = 0;
 
-    public EnvoyCard(String name, String number, String set, String imageUrl, String id, String hp, String supertype, String created, int importOrder) {
+    public EnvoyCard(String name, String customSetName, String number, String set, String imageUrl, String id, String hp, String supertype, String created, int importOrder) {
         this.name = name;
+        this.customSetName = customSetName;
         this.number = number;
         this.set = set;
         this.image = imageUrl;

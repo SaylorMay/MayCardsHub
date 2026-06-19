@@ -33,13 +33,30 @@ public class DebugMethods {
     public static void finalMethod(String accountURL, String userName, String exportName, long timestamp, String version) throws Exception {
 
         // #1 + #2
-        ArrayList<String> slugs = getAllCardLinks(accountURL);
+        ArrayList<String> slugs = getAllCardLinks(accountURL, userName);
+
+        boolean retryFlag = true;
+        int restartAttempts = 0;
 
         ArrayList<Card> cards = new ArrayList<>();
         for (String slug : slugs) {
-            System.out.println("Grabbing info from " + slug);
-            cards.add(makerLinkToCard("https://api.pokecardmaker.net/cards/by-slug?username=" + userName + "&slug=" + slug));
-            Thread.sleep((long) (Math.random() * 1000));
+            retryFlag = true;
+            while (retryFlag) {
+                try {
+                    cards.add(makerLinkToCard("https://api.pokecardmaker.net/cards/by-slug?username=" + userName + "&slug=" + slug));
+                    retryFlag = false;
+                }
+                catch (Exception e) {
+                    System.out.println("Too many requests!  Waiting ~20 seconds until trying again...");
+                    Thread.sleep(20000 + 10000);
+                    if (restartAttempts >= 2) {
+                        System.out.println()
+                    }
+                    restartAttempts++;
+                }
+            }
+            System.out.println("(" + cards.size() + "/" + slugs.size() + ") Retrieved information from " + slug + " to format!");
+            Thread.sleep((long) (Math.random() * 1500));
         }
 
         List<EnvoyCard> envoyCards = new ArrayList<>();
@@ -58,10 +75,11 @@ public class DebugMethods {
             envoyCards.add(
                     new EnvoyCard(
                             concatenatedName,
+                            setIdToDisplay(card.getSetId(), "SaylorMay Misc"),
                             card.getIdNum(),
                             card.getSetId(),
                             card.getImageLink(),
-                            "custom-" + version + "-mexp" + card.getSetId() + card.getIdNum(),
+                            "custom-" + userName + "-mexp" + card.getSetId() + card.getIdNum(),
                             card.getHp(),
                             card.getSuperType(),
                             card.getCreationDate(),
@@ -69,115 +87,16 @@ public class DebugMethods {
                     ));
 
             importOrder++;
+            System.out.println("(" + envoyCards.size() + "/" + cards.size() + ")  Formatted " + concatenatedName + " for Export!");
         }
 
         EnvoySet envoySet = new EnvoySet(envoyCards, timestamp, version);
 
+        System.out.println("Successfully exported!!!!  Located in src/exports/test/Jsons/" + exportName);
         System.out.println(envoySetToJson(envoySet, "src/exports/testJsons/" + exportName));
 
     }
 
-
-//    public static void test1() throws Exception {
-//        System.out.println(new Card());
-//        System.out.println(Conversion.sourceToCard(Conversion.getURLSource("https://pokecardmaker.net/card/SaylorMay/seele-8t13q2cdy")));
-//    }
-//
-//    public static void test2() throws Exception {
-//        Document doc = Jsoup.connect("https://pokecardmaker.net/card/SaylorMay/hatsune-miku-0igp29v9").get();
-//        // h1: "Hatsune Miku"
-//
-//
-//        ArrayList<Element> preparsedList = doc.select("span").asList();
-//        ArrayList<Element> parsedList = new ArrayList<>();
-//
-//
-//        for (Element element : preparsedList) {
-//            /* Requirements
-//            * 1) Not empty
-//            * 2) Not just "•"
-//            *  */
-//            String text = element.text();
-//            if (!element.text().equals("") &&
-//            !text.isEmpty() &&
-//            !text.equals("Create") &&
-//            !text.equals("PokeCardMaker.net") &&
-//            !text.equals("Browse") &&
-//            !text.equals("Sign in") &&
-//            !text.equals("More") &&
-//            !text.equals("•") &&
-//            !text.equals("Add to cart") &&
-//            !text.equals("Download image") &&
-//            !text.equals("Includes assets by Creatures Inc.")) {
-//                System.out.println(element.text());
-//            }
-//        }
-//    }
-//
-//    public static void test3() throws Exception {
-//        String url = "https://api.pokecardmaker.net/cards/users/cmh4al993005rl404xsbaup4r?limit=8&sortBy=new";
-//        int pageLimit = 30;
-//
-//        String json = "";
-//
-//        // Stores the next cursor listed at the end of the current json page
-//        int nextPage = 0;
-//
-//
-//        for (int i = 0; i < pageLimit && nextPage != -1; i++) {
-//            json = Jsoup.connect(url + "&cursor=" + nextPage)
-//                    .ignoreContentType(true)
-//                    .execute()
-//                    .body();
-//            nextPage = onlyDigits(json.substring(json.length() - 8));
-//            System.out.println("Page #: " + i);
-//            System.out.println(json);
-//        }
-//    }
-//
-//    public static void test4() throws Exception {
-//
-//        String url = "https://api.pokecardmaker.net/cards/users/cmh4al993005rl404xsbaup4r?limit=8&sortBy=new";
-//        int pageLimit = 50;
-//
-//        String json = "";
-//        boolean finishedFlag = false;
-//
-//        for (int i = 0; i < pageLimit && !finishedFlag; i++) {
-//            json = Jsoup.connect(url + "&cursor=" + i)
-//                    .ignoreContentType(true)
-//                    .execute()
-//                    .body();
-//            if (isPokeEmpty(json)) {
-//                finishedFlag = true;
-//            } else {
-//                exportJson(json, "C:\\Users\\Saylo\\Desktop\\IntelliJ Projects\\Pokemon\\MayCardsHub\\src\\tempJSONs", i + ".json");
-//                System.out.println("#i:/n" + json);
-//            }
-//        }
-//    }
-
-    public static void test5() {
-        JsonNode everBados = new ObjectMapper().readTree(new File("src/exports/testJsons/everbados.json"));
-        System.out.println(everBados.get("version"));
-    }
-
-    public static void test6() throws Exception {
-        EnvoySet envoySet = new EnvoySet();
-        envoySet.version = "1.0";
-        envoySet.data.add(new EnvoyCard());
-        envoySet.data.add(new EnvoyCard());
-        System.out.println(envoySetToJson(envoySet, "src/exports/testJsons/blank4.json"));
-    }
-
-    public static void test7() throws Exception {
-
-        Card exampleCard = makerLinkToCard("https://api.pokecardmaker.net/cards/by-slug?username=SaylorMay&slug=kasane-teto-d0ya38d3");
-        List<EnvoyCard> envoyCards = new ArrayList<>();
-        envoyCards.add(new EnvoyCard(exampleCard.getPrefix() + exampleCard.getName(), exampleCard.getIdNum(), exampleCard.getSetId(), exampleCard.getCatBoxImgLink()));
-        EnvoySet envoySet = new EnvoySet(envoyCards);
-        System.out.println(envoySetToJson(envoySet, "src/exports/testJsons/test3.json"));
-    }
 
     public static boolean envoySetToJson(EnvoySet envoySet, String filePath) throws Exception {
         try {
@@ -236,7 +155,7 @@ public class DebugMethods {
 
 
     // THE pageUrl STRING SHOULD BE AN API.POKECARDMAKER LINK
-    public static ArrayList<String> getAllCardLinks(String pageURL) throws Exception {
+    public static ArrayList<String> getAllCardLinks(String pageURL, String userName) throws Exception {
 
 
         // Checks and saves the total number of cards to print an accurate progress bar!
@@ -248,7 +167,7 @@ public class DebugMethods {
                 .get("total").asInt();
 
         // Initial message announcing the collection of card links
-        System.out.println("Retrieving " + totalCards + " from " + "[USER]" + "'s profile!");
+        System.out.println("Retrieving " + totalCards + " cards from " + userName + "'s profile!");
 
 
         int pageLimit = 500;
@@ -392,5 +311,24 @@ public class DebugMethods {
         System.out.println(result);
 
         return result;
+    }
+
+
+    public static String setIdToDisplay(String setId, String fallbackName) {
+        switch (setId.toLowerCase()) {
+            case "bla":
+                return "Blanche";
+            case "akr":
+                return "Akari";
+            case "vlt":
+                return "P.Voltage";
+            case "jupk":
+                return "VanillaMons";
+            case "hyo":
+                return "Hoyoverse";
+            case "vca":
+                return "Vocaloid";
+        }
+        return fallbackName;
     }
 }
