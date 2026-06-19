@@ -1,4 +1,4 @@
-package Code;
+package archivedCode;
 
 // For handling any logs and things of the sort
 public class Logger {

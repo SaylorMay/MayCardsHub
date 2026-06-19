@@ -1,0 +1,42 @@
+{
+  "_type" : "tcg-deck-builder-export",
+  "timestamp" : 1781323511710,
+  "version" : "1.0",
+  "data" : [ {
+    "id" : "",
+    "name" : "Kasane Teto",
+    "supertype" : "",
+    "isCustom" : true,
+    "image" : "https://dhcjt92fxib5i.cloudfront.net/user-uploads/SaylorMay/kasane-teto-d0ya38d3/cmqgzjux60003336xp5kfaau2.png?format=webp&width=480&quality=100",
+    "imageUrl" : "https://dhcjt92fxib5i.cloudfront.net/user-uploads/SaylorMay/kasane-teto-d0ya38d3/cmqgzjux60003336xp5kfaau2.png?format=webp&width=480&quality=100",
+    "images" : {
+      "large" : "https://dhcjt92fxib5i.cloudfront.net/user-uploads/SaylorMay/kasane-teto-d0ya38d3/cmqgzjux60003336xp5kfaau2.png?format=webp&width=480&quality=100",
+      "small" : "https://dhcjt92fxib5i.cloudfront.net/user-uploads/SaylorMay/kasane-teto-d0ya38d3/cmqgzjux60003336xp5kfaau2.png?format=webp&width=480&quality=100"
+    },
+    "subtypes" : [ ],
+    "types" : [ ],
+    "hp" : 0,
+    "evolvesFrom" : "",
+    "customSetName" : "",
+    "setNumber" : null,
+    "number" : "60",
+    "set" : "Vca",
+    "attacks" : [ ],
+    "abilities" : [ ],
+    "weaknesses" : [ ],
+    "resistances" : [ ],
+    "retreatCost" : [ ],
+    "convertedRetreatCost" : 0,
+    "artist" : "",
+    "rarity" : "",
+    "flavorText" : "",
+    "legalities" : {
+      "custom" : "Legal",
+      "expanded" : "Legal",
+      "standard" : "Legal"
+    },
+    "forteData" : { },
+    "rules" : [ ],
+    "created" : ""
+  } ]
+}

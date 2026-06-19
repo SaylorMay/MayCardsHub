@@ -1,6 +1,6 @@
-package Code;
+package archivedCode;
 
-public class Card {
+public class OldCard {
 
     // The actual printed name of the card
     private String name;
@@ -34,8 +34,8 @@ public class Card {
 
     // Just the subType because why not
     private int subType = 0;
-    
-    public Card() {
+
+    public OldCard() {
         name = "";
         hp = 0;
         imageURL = "";
@@ -49,7 +49,7 @@ public class Card {
         subType = 0;
     }
 
-    public Card(String name, int hp, String imageURL, String superType, String cardNum, String set, String ruleBox, String stage, String element, String source, int subType) {
+    public OldCard(String name, int hp, String imageURL, String superType, String cardNum, String set, String ruleBox, String stage, String element, String source, int subType) {
         this.name = name;
         this.hp = hp;
         this.imageURL = imageURL;

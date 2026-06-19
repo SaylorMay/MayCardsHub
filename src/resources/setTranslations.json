@@ -1,0 +1,49 @@
+{
+  "sets": [
+    "Blanche's Pokémon": [
+      "Bla"
+    ],
+    "Akari's Pokémon": [
+      "Akr"
+    ],
+    "Miku's Pokémon": [
+      "Akr"
+    ],
+    "Serena's Pokémon": [
+      "Ser"
+    ],
+    "May's Pokémon": [
+      "May"
+    ],
+    "Custom Vanilla Pokémon",: [
+      "JuPk"
+    ],
+    "Hoyoverse": [
+      "Hyo",
+      "Hyv",
+      "Hoyo"
+    ],
+    "Sonic": [
+      "Sonic",
+      "Son",
+      "Snc"
+    ],
+    "Undertale/Deltarune": [
+      "UtDr"
+    ],
+    "Mario": [
+      "SMB",
+      "SPM"
+    ],
+    "Sleep Deprived": [
+      "SDP"
+    ],
+    "Vocaloid": [
+      "Vca",
+      "Voca"
+    ],
+    "Miscellaneous": [
+      "Msc"
+    ]
+  ]
+}
