@@ -1,0 +1,42 @@
+{
+  "_type" : "tcg-deck-builder-export",
+  "timestamp" : 1781323511710,
+  "version" : "1.0",
+  "data" : [ {
+    "id" : "",
+    "name" : "Kasane Teto",
+    "supertype" : "",
+    "isCustom" : true,
+    "image" : "https://files.catbox.moe/0pzhke.png",
+    "imageUrl" : "https://files.catbox.moe/0pzhke.png",
+    "images" : {
+      "large" : "https://files.catbox.moe/0pzhke.png",
+      "small" : "https://files.catbox.moe/0pzhke.png"
+    },
+    "subtypes" : [ ],
+    "types" : [ ],
+    "hp" : 0,
+    "evolvesFrom" : "",
+    "customSetName" : "",
+    "setNumber" : null,
+    "number" : "60",
+    "set" : "Vca",
+    "attacks" : [ ],
+    "abilities" : [ ],
+    "weaknesses" : [ ],
+    "resistances" : [ ],
+    "retreatCost" : [ ],
+    "convertedRetreatCost" : 0,
+    "artist" : "",
+    "rarity" : "",
+    "flavorText" : "",
+    "legalities" : {
+      "custom" : "Legal",
+      "expanded" : "Legal",
+      "standard" : "Legal"
+    },
+    "forteData" : { },
+    "rules" : [ ],
+    "created" : ""
+  } ]
+}

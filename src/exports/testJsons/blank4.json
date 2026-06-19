@@ -1,0 +1,78 @@
+{
+  "_type" : "tcg-deck-builder-export",
+  "timestamp" : 1781323511710,
+  "version" : "1.0",
+  "data" : [ {
+    "id" : "",
+    "name" : "",
+    "supertype" : "",
+    "isCustom" : true,
+    "image" : "",
+    "imageUrl" : "",
+    "images" : {
+      "large" : "",
+      "small" : ""
+    },
+    "subtypes" : [ ],
+    "types" : [ ],
+    "hp" : 0,
+    "evolvesFrom" : "",
+    "customSetName" : "",
+    "setNumber" : 0,
+    "number" : "",
+    "set" : "",
+    "attacks" : [ ],
+    "abilities" : [ ],
+    "weaknesses" : [ ],
+    "resistances" : [ ],
+    "retreatCost" : [ ],
+    "convertedRetreatCost" : 0,
+    "artist" : "",
+    "rarity" : "",
+    "flavorText" : "",
+    "legalities" : {
+      "custom" : "Legal",
+      "expanded" : "Legal",
+      "standard" : "Legal"
+    },
+    "forteData" : { },
+    "rules" : [ ],
+    "created" : ""
+  }, {
+    "id" : "",
+    "name" : "",
+    "supertype" : "",
+    "isCustom" : true,
+    "image" : "",
+    "imageUrl" : "",
+    "images" : {
+      "large" : "",
+      "small" : ""
+    },
+    "subtypes" : [ ],
+    "types" : [ ],
+    "hp" : 0,
+    "evolvesFrom" : "",
+    "customSetName" : "",
+    "setNumber" : 0,
+    "number" : "",
+    "set" : "",
+    "attacks" : [ ],
+    "abilities" : [ ],
+    "weaknesses" : [ ],
+    "resistances" : [ ],
+    "retreatCost" : [ ],
+    "convertedRetreatCost" : 0,
+    "artist" : "",
+    "rarity" : "",
+    "flavorText" : "",
+    "legalities" : {
+      "custom" : "Legal",
+      "expanded" : "Legal",
+      "standard" : "Legal"
+    },
+    "forteData" : { },
+    "rules" : [ ],
+    "created" : ""
+  } ]
+}
